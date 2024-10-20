@@ -1,22 +1,11 @@
 pipeline {
     agent any
-    tools {
-        maven "3.9.4"
-    
-    }
-    
     stages {
         stage('Compile and Clean') { 
             steps {
                 // Run Maven on a Unix agent.
               
-                sh "mvn clean compile"
-            }
-        }
-        stage('deploy') { 
-            
-            steps {
-                sh "mvn package"
+                sh "mvn clean install"
             }
         }
         stage('Build Docker image'){
