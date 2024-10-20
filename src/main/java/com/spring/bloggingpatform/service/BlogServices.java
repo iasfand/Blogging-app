@@ -19,7 +19,7 @@ public class BlogServices {
 	
 	public List<Blogs> showAllBlogs()
 	{
-		blogRepository.findAll().forEach(item -> System.out.println(item));
+	//	blogRepository.findAll().forEach(item -> System.out.println(item));
 	 return blogRepository.findAll();
 		
 		
