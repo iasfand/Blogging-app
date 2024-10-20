@@ -65,7 +65,8 @@
                 <source>11</source> <!-- Set the source Java version -->
                 <target>11</target> <!-- Set the target Java version -->
             </configuration>
-</plugin>
+	</plugin>
+
 		</plugins>
 	</build> 
 </project>
