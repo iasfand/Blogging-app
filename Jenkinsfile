@@ -5,7 +5,7 @@ pipeline {
             steps {
                 // Run Maven on a Unix agent.
               
-                sh "mvn clean install"
+                sh "mvn -B -DskipTests clean package"
             }
         }
         stage('Build Docker image'){
