@@ -13,23 +13,11 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>bloggingpatform</name>
 	<description>Spring boot backend API for bogging</description>
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
-	<developers>
-		<developer/>
-	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
+
 	<properties>
-		  <java.version>1.8</java.version>
-		  <maven.compiler.source>1.8</maven.compiler.source>
-    	  <maven.compiler.target>1.8</maven.compiler.target>
+		  <java.version>17</java.version>
+		  <maven.compiler.source>17</maven.compiler.source>
+    	  <maven.compiler.target>17</maven.compiler.target>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -62,8 +50,8 @@
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-compiler-plugin</artifactId>
     <configuration>
-                <source>1.8</source> <!-- Set the source Java version -->
-                <target>1.8</target> <!-- Set the target Java version -->
+                <source>17</source> <!-- Set the source Java version -->
+                <target>17</target> <!-- Set the target Java version -->
             </configuration>
 	</plugin>
 
