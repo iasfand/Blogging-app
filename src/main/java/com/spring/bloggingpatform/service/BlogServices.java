@@ -67,4 +67,28 @@ public class BlogServices {
 		
 	//	blogRepo.findAll().forEach(item -> new blog(item));
 	}
+	
+	
+	
+/*	public String updateBlogs(Blogs bl)
+	{
+	//	blogRepository.findAll().forEach(item -> System.out.println(item));
+	//	(String bdate, String bname,String bcontent,
+//				String btags,String btitle,String bid);
+	//	Blogs bli=blogRepository.findBlogsById(bl.getId());
+	 blogRepository.updatePost(bl.getDate(),bl.getName(),bl.getContent(),
+			 bl.getTags(),bl.getTags(),bl.getId());	
+		return "Success";
+	//	blogRepo.findAll().forEach(item -> new blog(item));
+	}  */
+	
+	
+    public Optional<Blogs> updateBlogs(String id, Blogs blog) {
+        if(!blogRepository.existsById(id)) {
+            return Optional.empty();
+        }
+        
+        blog.setId(id);
+        return Optional.of(blogRepository.save(blog));
+    }
 }
