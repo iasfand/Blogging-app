@@ -1,9 +1,12 @@
 package com.spring.bloggingpatform.controller;
-
+import java.util.*;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.bloggingpatform.model.Blogs;
+import com.spring.bloggingpatform.model.User;
+import com.spring.bloggingpatform.model.user_registration;
 import com.spring.bloggingpatform.service.BlogServices;
 
 import jakarta.websocket.server.PathParam;
@@ -79,4 +84,23 @@ public class MainController {
 	{
 		return blogServices.updateBlogs(blogs.getId(),blogs);
 	}//updateBlogs
+	
+	@PostMapping("/saveUser")
+	public @ResponseBody ResponseEntity<Object> saveUser(@RequestBody user_registration usr_reg)
+	{
+		blogServices.userRegister(usr_reg);
+		//return "Success";
+		Map<String, String> data = new HashMap<>();
+        data.put("response", "Success");
+
+	    return new ResponseEntity<>(data, HttpStatus.OK);
+	}//updateBlogs
+	
+	@PostMapping("/validate")
+	public @ResponseBody Optional<user_registration> validateUser(@RequestBody User user)
+	{
+		return blogServices.validateUser(user);
+
+		
+	}
 }

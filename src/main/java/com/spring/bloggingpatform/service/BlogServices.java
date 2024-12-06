@@ -7,7 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.bloggingpatform.model.Blogs;
+import com.spring.bloggingpatform.model.User;
+import com.spring.bloggingpatform.model.user_registration;
 import com.spring.bloggingpatform.repository.BlogRepository;
+import com.spring.bloggingpatform.repository.UserRegistrationRepository;
 
 @Service
 public class BlogServices {
@@ -15,7 +18,8 @@ public class BlogServices {
 	@Autowired
 	BlogRepository blogRepository;
 	
-
+	@Autowired
+	UserRegistrationRepository userRegistrationRepo;
 	
 	public List<Blogs> showAllBlogs()
 	{
@@ -90,5 +94,14 @@ public class BlogServices {
         
         blog.setId(id);
         return Optional.of(blogRepository.save(blog));
+    }
+    
+    
+    public void userRegister(user_registration usr) {
+    	userRegistrationRepo.save(usr);    
+    }
+    
+    public Optional<user_registration> validateUser(User user) {
+    	return userRegistrationRepo.validateUsernameAndPassword(user.getUsername(),user.getPassword());
     }
 }
