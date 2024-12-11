@@ -105,7 +105,7 @@ public class MainController {
 	}
 	
 	
-	@GetMapping("/test")
+	@GetMapping("/sample")
 	public String sample()
 	{
 		return "Sample test code";
